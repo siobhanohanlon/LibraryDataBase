@@ -11,7 +11,7 @@ typedef struct
 }libraryB;
 
 //Declare Funstions
-void initArray();
+void initArray(libraryB* bkArr, int size);
 
 void main()
 {
@@ -27,13 +27,28 @@ void main()
 	bookArray = (int*)malloc(numB * sizeof(int));
 	bArray = (libraryB*)malloc(numB * sizeof(libraryB));
 
+
+	setArray(bArray, numB);
 }
 
 //Initialise Array
-void initArray()
+void initArray(libraryB* bkArr, int size)
 {
-	for (int i = 0; i < )
+	for (int i = 0; i < size; i++)
 	{
+		printf("Please Enter Book Number: ");
+		scanf("%ld", (*(bkArr + i)).bNum);
 
+
+		printf("Please Enter Book Title: ");
+		scanf("%s", (*(bkArr + i)).bTitle);
+
+
+		printf("Please Enter Book Author: ");
+		scanf("%s", (*(bkArr + i)).bAuthor);
+
+
+		printf("Please Enter Book Price: ");
+		scanf("%s", (*(bkArr + i)).bPrice);
 	}
 }
