@@ -15,6 +15,17 @@ void initArray();
 
 void main()
 {
+	int* bookArray;
+	libraryB* bArray;
+	int numB;
+
+	//Enter Size of Array
+	printf("Please Enter amount of Books to be enetered: ");
+	scanf("%d", &numB);
+
+	//SetUp Array
+	bookArray = (int*)malloc(numB * sizeof(int));
+	bArray = (libraryB*)malloc(numB * sizeof(libraryB));
 
 }
 
