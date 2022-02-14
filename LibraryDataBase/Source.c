@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //Struct
 typedef struct
@@ -51,22 +52,50 @@ void initArray(libraryB* bkArr, int size)
 	}
 }
 
-
 //Set Array
 void add_Book(libraryB* bkArr, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		printf("Please Enter Book Number: ");
-		scanf("%ld", &(*(bkArr + i)).bNum);
+		if ((*(bkArr + i)).bNum == 0)
+		{
+			printf("Please Enter Book Number: ");
+			scanf("%ld", &(*(bkArr + i)).bNum);
 
-		printf("Please Enter Book Title: ");
-		scanf("%s", (*(bkArr + i)).bTitle);
+			printf("Please Enter Book Title: ");
+			scanf("%s", (*(bkArr + i)).bTitle);
 
-		printf("Please Enter Book Author: ");
-		scanf("%s", (*(bkArr + i)).bAuthor);
+			printf("Please Enter Book Author: ");
+			scanf("%s", (*(bkArr + i)).bAuthor);
 
-		printf("Please Enter Book Price: ");
-		scanf("%d", &(*(bkArr + i)).bPrice);
+			printf("Please Enter Book Price: ");
+			scanf("%d", &(*(bkArr + i)).bPrice);
+
+			return;
+		}
+	}
+}
+
+//Display Array
+void displayArr(libraryB* bkArr, int size, int findBk)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if ((*(bkArr + i)).bNum == findBk)
+		{
+			printf("Please Enter Book Number: ");
+			scanf("%ld", &(*(bkArr + i)).bNum);
+
+			printf("Please Enter Book Title: ");
+			scanf("%s", (*(bkArr + i)).bTitle);
+
+			printf("Please Enter Book Author: ");
+			scanf("%s", (*(bkArr + i)).bAuthor);
+
+			printf("Please Enter Book Price: ");
+			scanf("%d", &(*(bkArr + i)).bPrice);
+
+			return;
+		}
 	}
 }
