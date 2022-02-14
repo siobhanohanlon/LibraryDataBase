@@ -13,6 +13,9 @@ typedef struct
 
 //Declare Funstions
 void initArray(libraryB* bkArr, int size);
+void displayArr(libraryB* bkArr, int size);
+void add_Book(libraryB* bkArr, int size);
+void menu();
 
 void main()
 {
@@ -32,15 +35,16 @@ void main()
 
 	do
 	{
-		printf("Enter 1 to add a book or 0 to exit");
+		printf("Enter 1 to add a book or 0 to exit:\t");
 		scanf("%d", &choice);
 
 		if (choice == 1)
 		{
 			add_Book(bArray, numB);
 		}
-	} while (choice = 1);
+	} while (choice == 1);
 	
+	displayArr(bArray, numB);
 }
 
 //Initialise Array
@@ -77,25 +81,32 @@ void add_Book(libraryB* bkArr, int size)
 }
 
 //Display Array
-void displayArr(libraryB* bkArr, int size, int findBk)
+void displayArr(libraryB* bkArr, int size)
 {
+	int findBk;
+
+	//Ask for Book Number
+	printf("\nEnter Book Number you want to display: ");
+	scanf("%d", &findBk);
+
 	for (int i = 0; i < size; i++)
 	{
 		if ((*(bkArr + i)).bNum == findBk)
 		{
-			printf("Please Enter Book Number: ");
-			scanf("%ld", &(*(bkArr + i)).bNum);
-
-			printf("Please Enter Book Title: ");
-			scanf("%s", (*(bkArr + i)).bTitle);
-
-			printf("Please Enter Book Author: ");
-			scanf("%s", (*(bkArr + i)).bAuthor);
-
-			printf("Please Enter Book Price: ");
-			scanf("%d", &(*(bkArr + i)).bPrice);
+			printf("\n----------------------------------------------------------");
+			printf("\nBook Number: %ld", (*(bkArr + i)).bNum);
+			printf("\nTitle: %s", (*(bkArr + i)).bTitle);
+			printf("\nAuthor: %s", (*(bkArr + i)).bAuthor);
+			printf("\nPrice: %.2d", (*(bkArr + i)).bPrice);
+			printf("\n----------------------------------------------------------");
 
 			return;
 		}
 	}
+}
+
+//Menu
+void menu()
+{
+	printf("Select 1. Search & Display Book  2. Add Book  3.Edit Book Price  \nExit ");
 }
