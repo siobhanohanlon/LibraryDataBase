@@ -16,6 +16,7 @@ void initArray(libraryB* bkArr, int size);
 void displayArr(libraryB* bkArr, int size);
 void add_Book(libraryB* bkArr, int size);
 void menu();
+void edit_Price();
 
 void main()
 {
@@ -105,8 +106,62 @@ void displayArr(libraryB* bkArr, int size)
 	}
 }
 
-//Menu
-void menu()
+//Edit Price
+void edit_Price(libraryB* bkArr, int size)
 {
-	printf("Select 1. Search & Display Book  2. Add Book  3.Edit Book Price  \nExit ");
+	int changeBk, change, repeat;
+
+	do {
+		//Ask for Book Number
+		printf("\nEnter Book Number you want to change the price of: ");
+		scanf("%d", &changeBk);
+
+		for (int i = 0; i < size; i++)
+		{
+			if ((*(bkArr + i)).bNum == changeBk)
+			{
+				printf("\nPrice: was %.2d", (*(bkArr + i)).bPrice);
+				printf("\nNew Price:");
+				scanf("%d", &(*(bkArr + i)).bPrice);
+			}
+		}
+
+		printf("Would you like to edit another books price?\nEnter 1: Yes Other: No");
+		scanf("%d", &change);
+
+		if (change == 1)
+		{
+			repeat = 1;
+		}
+
+		else
+		{
+			repeat = 0;
+		}
+	} while (repeat == 1);
+}
+
+//Menu
+void menu(libraryB* bkArr, int size)
+{
+	int choice;
+
+	printf("Select 1. Search & Display Book  2. Add Book  3.Edit Book Price  Other to Exit ");
+	scanf("%d", &choice);
+
+	switch (choice)
+	{
+		case 1:
+			displayArr(bkArr, size);
+			break;
+		case 2:
+			add_Book(bkArr, size);
+			break;
+		case 3:
+			edit_Price(bkArr, size);
+			break;
+		default:
+			exit(0);
+			break;
+	}
 }
